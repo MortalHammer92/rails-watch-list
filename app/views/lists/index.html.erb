@@ -9,13 +9,14 @@
     <p class="text-muted">No list for now.</p>
   <% end %>
 
-  <div class="row g-3">
+  <div class="row g-4">
     <% @lists.each do |list| %>
-      <div class="col-md-4">
-        <div class="card p-3 h-100">
-          <h5><%= list.name %></h5>
-          <%= link_to "See", list_path(list), class: "btn btn-outline-primary btn-sm" %>
-        </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <%= link_to list_path(list), class: "text-decoration-none" do %>
+          <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= list.cover_image %>');">
+            <h2><%= list.name %></h2>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

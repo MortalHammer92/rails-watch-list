@@ -2,11 +2,14 @@
   <div class="col-12 col-md-8 col-lg-6">
     <div class="card shadow-sm mb-4">
       <div class="card-body">
-        <h2 class="h5 mb-3">Add a movie to <%= (@list.name) %></h2>
+        <h2 class="h5 mb-3">Add a movie to <%= @list.name %></h2>
         <%= simple_form_for [@list, @bookmark] do |f| %>
-          <%= f.input :comment, placeholder: "ex : Awesome movie !" %>
           <%= f.association :movie, prompt: "Pick a movie" %>
-          <%= f.submit "Submit", class: "btn btn-primary" %>
+          <%= f.input :comment, placeholder: "ex : Awesome movie !" %>
+          <div class="d-flex gap-2">
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+            <%= link_to "Cancel", list_path(@list), class: "btn btn-outline-secondary" %>
+          </div>
         <% end %>
       </div>
     </div>
