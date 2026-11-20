@@ -3,6 +3,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @unlisted_movies = Movie.where.missing(:bookmarks)
   end
 
   def show
